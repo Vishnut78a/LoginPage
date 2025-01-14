@@ -37,9 +37,11 @@ submit.addEventListener("click",function(){
            
                 if(passwordValidator(passwordConfirm.value)){
                     console.log("SUCCESSFULLY CREATED");
+                    if(username.value){
                     toggleErrorMessage.innerText = 'Succesfully Registered!'
                     toggleErrorMessage.style.color = '#00c49a';
                     toggleErrorMessage.style.display = 'block';
+                    }
                 }else{
                     toggleErrorMessage.style.color = 'red';
                     toggleErrorMessage.innerHTML = 'Password must be at least <br>- 8-16 characters long and must contain  &nbsp;&nbsp;of <br> - an UpperCase, <br> - a LowerCase, <br> - a number and <br> - a special character' ;
