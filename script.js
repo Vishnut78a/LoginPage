@@ -6,6 +6,7 @@ var submit = document.getElementById('submit-parent');
 var togglePassword = document.getElementById('showPassword');
 var togglePasswordConfirm = document.getElementById('showPasswordConfirm');
 var toggleErrorMessage = document.getElementById('error-message');
+var successMessage = document.getElementById('success-message');
 var usernameError = document.getElementById('userName-error');
 var passwordError = document.getElementById('password-error');
 
@@ -18,6 +19,7 @@ submit.addEventListener("click",function(){
         }else{
             usernameError.style.display = 'block';
             toggleErrorMessage.style.color = 'red';
+            successMessage.style.display = 'none';
         }
     }
 
@@ -25,6 +27,7 @@ submit.addEventListener("click",function(){
         if(password.value){
             passwordError.style.display = 'none';
         }else{
+            successMessage.style.display = 'none';
             passwordError.style.display = 'block';
             toggleErrorMessage.style.color = 'red';
         }
@@ -38,11 +41,13 @@ submit.addEventListener("click",function(){
                 if(passwordValidator(passwordConfirm.value)){
                     console.log("SUCCESSFULLY CREATED");
                     if(username.value){
-                    toggleErrorMessage.innerText = 'Succesfully Registered!'
-                    toggleErrorMessage.style.color = '#00c49a';
-                    toggleErrorMessage.style.display = 'block';
+                    successMessage.innerText = 'Succesfully Registered!'
+                    successMessage.style.display = 'block';
+                    toggleErrorMessage.style.display = 'none';
                     }
+                    
                 }else{
+                    successMessage.style.display = 'none';
                     toggleErrorMessage.style.color = 'red';
                     toggleErrorMessage.innerHTML = 'Password must be at least <br>- 8-16 characters long and must contain  &nbsp;&nbsp;of <br> - an UpperCase, <br> - a LowerCase, <br> - a number and <br> - a special character' ;
                    
@@ -51,11 +56,13 @@ submit.addEventListener("click",function(){
                 }
                 
             }else{
+                successMessage.style.display = 'none';
                 toggleErrorMessage.innerHTML = 'The passwords should match!'
                 toggleErrorMessage.style.color = 'red';
                 toggleErrorMessage.style.display = 'block';
             }
         }else{
+            successMessage.style.display = 'none';
             toggleErrorMessage.innerHTML = 'Re-enter password!';
             toggleErrorMessage.style.color = 'red';
             toggleErrorMessage.style.display = 'block';
