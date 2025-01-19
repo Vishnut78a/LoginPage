@@ -1,8 +1,8 @@
-
+var form = document.getElementById('form');
 var username = document.getElementById('userName');
 var password = document.getElementById('password');
 var passwordConfirm = document.getElementById('passwordConfirm');
-var submit = document.getElementById('submit-parent');
+var submit1 = document.getElementById('submit-parent');
 var togglePassword = document.getElementById('showPassword');
 var togglePasswordConfirm = document.getElementById('showPasswordConfirm');
 var toggleErrorMessage = document.getElementById('error-message');
@@ -12,7 +12,7 @@ var passwordError = document.getElementById('password-error');
 
 
 
-submit.addEventListener("click",function(){
+submit1.addEventListener("click",function(){
     function userNameValidator(){
         if(username.value){
             usernameError.style.display = 'none';
@@ -44,6 +44,7 @@ submit.addEventListener("click",function(){
                     successMessage.innerText = 'Succesfully Registered!'
                     successMessage.style.display = 'block';
                     toggleErrorMessage.style.display = 'none';
+                    form.submit();
                     }
                     
                 }else{
